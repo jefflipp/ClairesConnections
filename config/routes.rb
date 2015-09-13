@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
   resources :users 
+
    resources :events
+
+    resources :comments
 
 
   get '/login'     => 'sessions#new'
