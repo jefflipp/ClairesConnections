@@ -1,6 +1,6 @@
 <h1>Comments</h1>
 <ul>
   <% @comments.each do |comment| %>
-    <%= comment.first_name %> <%= user.last_name %> <%= user.user_name %> 
+    <%= comment.title %> <%= comment.body %>  
   <% end %>
 </ul>

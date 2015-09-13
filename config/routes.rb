@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :users 
+root 'events#index'
 
-   resources :events
-
+  resources :users
+  resources :events do
     resources :comments
-
+  end
+  
 
   get '/login'     => 'sessions#new'
   post '/login'    => 'sessions#create'

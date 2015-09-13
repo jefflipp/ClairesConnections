@@ -5,17 +5,21 @@ class CommentsController < ApplicationController
   end
 
   def show
-  	@comment = Comment.find(params[:id])
   end
 
   def new
     @comment = Comment.new
   end
 
+  def edit
+  end
+
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
-    @comment.event_id = Commend.find(params[:event_id])
+    @event = event.find(params[:event_id])
+    @comment = @event.comments.new(comment_params)
+    
+    
+    
 
     if @comment.save
       redirect_to users_path
@@ -23,6 +27,12 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  private
+
+  def comment_params
+      params.require(:comment).permit(:title, :body)
   end
 
 
