@@ -3,8 +3,10 @@
 <h3> Email: <%=@user.email%></h3> <br>
 
 <% @event.each do |event| %>
-<li><%= event.title %> <%= event.description %></li>
+<li><%= event.title %> <%= event.description %> <%= link_to "Edit", edit_event_path %></li>
 <% end %>
 
-<p><%= link_to "Delete this profile!", user_path, method: :delete, data: { confirm: "Are you sure you want to delete this profile?"} %> </p>
+
 <p><%= link_to "Add an event", new_event_path %> </p>
+
+<p><%= link_to "Delete this profile!", user_path, method: :delete, data: { confirm: "Are you sure you want to delete this profile?"} %> </p>
