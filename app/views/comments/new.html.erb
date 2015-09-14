@@ -1,10 +1,13 @@
 <h1>Submit your comment</h1>
 
-<%= form_for @comment do |f| %>
+
+<%= form_for [@event, @comment] do |f|%>
+
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+
   <div>
     <%= f.label :body %>
     <%= f.text_area :body %>
@@ -15,3 +18,4 @@
   </div>
  
  <% end %> 
+

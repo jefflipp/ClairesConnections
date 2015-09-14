@@ -10,4 +10,8 @@
 	<%#=event.user_id%>
 </h3>
 
+<%= @event.comments.each do |c|%>
+	<%= c.title %>
+	<%= c.body %>
+<% end %>
 	

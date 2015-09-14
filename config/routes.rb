@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
 root 'events#index'
 
-  resources :users
-  resources :events do
-    resources :comments
-  end
+  resources :users 
+    resources :events do
+      resources :comments
+    end
   
 
   get '/login'     => 'sessions#new'
