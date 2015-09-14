@@ -1,7 +1,22 @@
-<h1>These are all the events<h1>
-<ul>
-  <% @events.each do |event| %>
-    <li><%= event.title %> <%= event.description %> <%= event.date %> 
+<% @events.each do |event| %>
 
-    <% end %>
-    
+<div class="row">
+  <div class="col-sm-3 col-md-3" >
+    <div class="thumbnail">
+      <img src="http://www.nsdcnaacp.org/flickr_icon.png" alt="...">
+      <div class="caption text-center" >
+        <h3>Event: <%= event.title %></h3>
+        	<ul>
+		        <li>What's happening: <%= event.description %></li>
+		        <li>Date: <%= event.date %></li>
+		        <li>Posted by: <%= event.user_id %></li> 
+			</ul>
+        <a href="#" class="btn btn-primary" role="button">More details</a> <a href="#" class="btn btn-default" role="button">Comment</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
+

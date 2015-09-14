@@ -9,8 +9,8 @@ root "welcome#index"
     end
   
 
-  get '/login'     => 'sessions#new'
-  post '/login'    => 'sessions#create'
+  get '/login'     => 'sessions#new', as: :login
+  post '/login'    => 'sessions#create', as: :log_cr
   delete '/logout' => 'sessions#destroy'
 
  

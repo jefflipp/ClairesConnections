@@ -1,0 +1,43 @@
+<%= form_for @event do |f| %>
+
+  <ul>
+    <li><%= f.label :title %>
+    <li><%= f.text_field :title %>
+  </ul>
+
+  <ul>
+    <li><%= f.label :description %>
+    <li><%= f.text_area :description %>
+  </ul>
+
+  <ul>
+    <li><%= f.label :date %></li>
+    <li><%= f.date_field :date %></li>
+  </ul>
+
+  <ul>
+    <li><%= f.label :start_time %></li>
+    <li><%= f.datetime_field :start_time %></li>
+  </ul>
+
+  <ul>
+    <li><%= f.label :end_time %></li>
+    <li><%= f.datetime_field :end_time %></li>
+  </ul>
+
+  <ul>
+    <li><%= f.label :location %></li>
+    <li><%= f.text_field :location %></li>
+  </ul>
+
+  <ul>
+    <li><%= f.label :for_ages %></li>
+    <li><%= f.text_field :for_ages %></li>
+  </ul>
+  
+  <ul>
+    <li><%= f.submit %></li>
+  </ul>
+
+<% end %>
+

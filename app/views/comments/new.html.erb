@@ -1,21 +1,11 @@
-<h1>Submit your comment</h1>
-
-
-<%= form_for [@event, @comment] do |f|%>
-
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+<section class = "comment">
+  <div class = "container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+          <%= render "comments/form_comment" %>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div>
-    <%= f.label :body %>
-    <%= f.text_area :body %>
-  </div>
-
-	<div>
-    <%= f.submit %>
-  </div>
- 
- <% end %> 
 

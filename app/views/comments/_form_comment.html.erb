@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-5 col-md-5">
+    <div class="thumbnail">
+      <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/3d-glossy-orange-orbs-icons-sports-hobbies/106502-3d-glossy-orange-orb-icon-sports-hobbies-party.png" alt="...">
+      <div class="caption">
+        <h3>Event</h3>
+        <p> Name: <%=@event.title%> <br>
+      Decription: <%=@event.description%> <br>
+
+<h1>Submit your comment</h1>
+
+<%= form_for [@event, @comment] do |f|%>
+
+  <ul>
+    <li><%= f.label :title %></li>
+    <li><%= f.text_field :title %></li>
+  </ul>
+
+  <ul>
+    <ul><%= f.label :body %></li>
+    <ul><%= f.text_area :body %></li>
+  </ul>
+
+	<div>
+    <ul><%= f.submit %></li>
+  </div>
+ 
+ <% end %> 
+

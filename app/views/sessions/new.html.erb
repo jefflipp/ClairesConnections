@@ -1,14 +1,10 @@
-<h1>Log In</h1>
-<%= form_for :login do |f| %>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+<section class = "login">
+  <div class = "container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1> Log In to Start Your Connection </h1>
+        <%= render "form_signin" %>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.submit 'Log In' %>
-  </div>
-<% end %>
+</section>

@@ -1,0 +1,16 @@
+<%#= form_for :login do |f| %>
+
+<%= form_tag('/login', method: "POST") do %>
+
+  <ul>
+    <li><%= label_tag :email %></li>
+    <li><%= text_field_tag :email %></li>
+  </ul>
+  <ul>
+    <li><%= label_tag :password %></li>
+    <li><%= password_field_tag :password %></li>
+  </ul>
+  <ul>
+    <li><%= submit_tag 'Log In' %></li>
+  </ul>
+<% end %>
