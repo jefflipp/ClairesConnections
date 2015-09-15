@@ -1,0 +1,31 @@
+
+<div class = "title text-center" >
+	<h1> Hi <%=current_user.user_name%> </h1>
+</div>
+<div class="container">
+	<div class="row">
+	<% @events.each do |event| %>
+	  <div class="col-sm-2" >
+	    <div class="thumbnail">
+	      <img src="http://www.nsdcnaacp.org/flickr_icon.png" alt="...">
+	      <div class="caption text-center" >
+	        <h3>Event: <%= event.title %></h3>
+	        	<ul>
+			        <li>What's happening: <%= event.description %></li>
+			        <li>Date: <%= event.date %></li>
+			        <li>Posted by: <%= event.user_id %></li> 
+				</ul>
+	        	<button type="button" class="btn btn-default btn-sm">
+              		<span class="glyphicon glyphicon-search"> 
+              		<%= link_to "More", event %></span>
+            	</button>
+	      </div>
+	    </div>
+	  </div>
+	<% end %>  
+	</div>
+</div>
+
+
+
+

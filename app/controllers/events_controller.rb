@@ -22,8 +22,13 @@ class EventsController < ApplicationController
       end_time: event_params[:end_time],
       location: event_params[:location],
       for_ages: event_params[:for_ages],
+      event_id: event_params[:event_id],
       user_id: current_user.id
+
     })
+
+    @comment = @event.comments.new(comment_params)
+    @comment.user_id = @user
         
     if @event.save
       redirect_to users_path
@@ -53,13 +58,13 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
- 
-
-
-
 private
 
 	def event_params
 	    params.require(:event).permit(:title, :description, :date, :start_time, :end_time, :location, :for_ages)
 	end
+
+  def comment_params
+      params.require(:comment).permit(:title, :body)
+  end
 end

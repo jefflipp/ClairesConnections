@@ -1,12 +1,21 @@
+<% if current_user %>
+					
+<%= render "events/events_index" %>
 
-<section class = "login">
-	<div class = "container">
-		<div class="row">
-			<div class="col-sm-12 text-center">
-				<h1> Log In to Start Your Connection </h1>
-				<%= render "sessions/form_signin" %>
+<% else %>
+	<section class = "login">
+		<div class = "container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<h1> Log In to Start Your Connection </h1>
+					<%= render "sessions/form_signin" %>
+						<span class="label"> <%= link_to "Or sign up", new_user_path %></span>
+
+						
+
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
 
+<% end %>

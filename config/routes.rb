@@ -3,15 +3,18 @@ Rails.application.routes.draw do
 root "welcome#index"
 
 
-  resources :users 
+    resources :users 
     resources :events do
       resources :comments
     end
+
   
 
   get '/login'     => 'sessions#new', as: :login
   post '/login'    => 'sessions#create', as: :log_cr
   delete '/logout' => 'sessions#destroy'
+
+  get '/comments' => 'comments#index'
 
  
 

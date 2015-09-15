@@ -29,6 +29,9 @@
     </div>
 </div>
 
+<p><%= link_to "Add an event", new_event_path %> </p>
+
+
 <h3>My events </h3>
 <% @event.each do |event| %>
 <div class="row">
@@ -39,13 +42,15 @@
     
   </div>
     <ul> 
-      <li><strong> Name: </strong><%= event.title %></li>
+      <li><strong>Name: </strong><%= event.title %></li>
       <li><strong>Title: </strong><%= event.description %></li>
       <li><strong>Date: </strong><%= event.date %></li>
-
       <%#= link_to "Edit", edit_user_event_path %>
     </ul>
 </div>
+<span class="label"> <%= link_to "More details", event_path %> </span>
 <% end %>
 
 	
+
+
