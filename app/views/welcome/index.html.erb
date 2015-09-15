@@ -1,4 +1,6 @@
 <% if current_user %>
+
+<%= render "sessions/stats" %>
 					
 <%= render "events/events_index" %>
 
@@ -10,6 +12,7 @@
 					<h1> Log In to Start Your Connection </h1>
 					<%= render "sessions/form_signin" %>
 						<span class="label"> <%= link_to "Or sign up", new_user_path %></span>
+
 
 						
 

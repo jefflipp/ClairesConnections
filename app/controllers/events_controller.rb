@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
 	def index
-    @events = Event.all
+    @events = Event.where user_id: current_user.id
   end
 
   def show

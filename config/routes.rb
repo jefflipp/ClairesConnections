@@ -3,7 +3,13 @@ Rails.application.routes.draw do
 root "welcome#index"
 
 
-    resources :users 
+    resources :users do
+      member do
+        get :following, :followers
+      end
+    end  
+
+    resources :relationships, only: [:create, :destroy]
     resources :events do
       resources :comments
     end

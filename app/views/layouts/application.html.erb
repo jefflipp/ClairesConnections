@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active">
-          <a class= <%= link_to 'My Profile', user_path(current_user.id) %> </a></li>
+          <a class= <%= link_to 'My Profile', users_path %> </a></li>
         <li>
           <a href="/events/new">Add an Event</a></li>
         <li class="dropdown">
@@ -33,7 +33,7 @@
             <span class="caret"></span>
             </a>
           <ul class="dropdown-menu">
-            <li><a class = <%= link_to 'All Events', events_path %></a></li>
+            <li><a class = <%= link_to 'My Events', events_path %></a></li>
             <li><a href="#">My Events</a></li>
             <li><a href="#">Events by date</a></li>
             <li role="separator" class="divider"></li>

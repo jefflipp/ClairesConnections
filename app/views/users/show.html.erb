@@ -2,6 +2,13 @@
 <div class = "container">
 <div class = "title">
   <h1> My Profile </h1>
+    <section class="stats">
+      <%= render 'sessions/stats' %>
+      <br>
+      <% if current_user %>
+      <%= render 'follow_form'%>
+      <% end %>      
+    </section>
   <div class="row text-center">
     <div class="col-sm-3">
       <div class="thumbnail">
@@ -13,6 +20,7 @@
             <li><strong> About me: </strong> <%=@user.bio%><li/>
           <br>
           </ul>
+       
           <% if @user==current_user %>
             <button type="button" class="btn btn-default btn-sm">
               <span class="glyphicon glyphicon-pencil"> 
