@@ -1,20 +1,24 @@
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/3d-glossy-orange-orbs-icons-sports-hobbies/106502-3d-glossy-orange-orb-icon-sports-hobbies-party.png" alt="...">
-      <div class="caption">
-        <h3>Your Event</h3>
-        <p>	Name: <%=@event.title%> <br>
-			Decription: <%=@event.description%> <br>
-			Suggested age: <%=@event.for_ages%> <br>
-			Date: <%=@event.date%> <br>
-			Start time: <%=@event.start_time%> <br>
-			End time: <%=@event.end_time%> <br>
-			Location: <%=@event.location%> <br></p>
-        <p>
-        </div>
-    </div>
+
+<div class = "container" >
+  <div class = "title" >
+    <h1> Event Details </h1>
   </div>
+  <div class="row text-center">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/3d-glossy-orange-orbs-icons-sports-hobbies/106502-3d-glossy-orange-orb-icon-sports-hobbies-party.png" alt="...">
+        <div class="caption">        
+            <ul>	
+              <li> Name: <%=@event.title%> </li>
+              <li> Decription: <%=@event.description%> </li>
+              <li> Suggested age: <%=@event.for_ages%> </li>
+            	<li> Date: <%=@event.date%> </li>
+            	<li> Start time: <%=@event.start_time%> </li>
+            	<li> End time: <%=@event.end_time%> </li>
+            	<li> Location: <%=@event.location%> </li>
+          </div>
+      </div>
+    </div>
 </div>
 
 <% @event.comments.each do |c|%>

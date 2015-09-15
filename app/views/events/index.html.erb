@@ -1,22 +1,28 @@
-<% @events.each do |event| %>
 
-<div class="row">
-  <div class="col-sm-3 col-md-3" >
-    <div class="thumbnail">
-      <img src="http://www.nsdcnaacp.org/flickr_icon.png" alt="...">
-      <div class="caption text-center" >
-        <h3>Event: <%= event.title %></h3>
-        	<ul>
-		        <li>What's happening: <%= event.description %></li>
-		        <li>Date: <%= event.date %></li>
-		        <li>Posted by: <%= event.user_id %></li> 
-			</ul>
-        <a href="#" class="btn btn-primary" role="button">More details</a> <a href="#" class="btn btn-default" role="button">Comment</a></p>
-      </div>
-    </div>
-  </div>
+<div class = "title text-center" >
+	<h1> All Events </h1>
 </div>
-<% end %>
+<div class="container">
+	<div class="row">
+	<% @events.each do |event| %>
+	  <div class="col-md-4" >
+	    <div class="thumbnail">
+	      <img src="http://www.nsdcnaacp.org/flickr_icon.png" alt="...">
+	      <div class="caption text-center" >
+	        <h3>Event: <%= event.title %></h3>
+	        	<ul>
+			        <li>What's happening: <%= event.description %></li>
+			        <li>Date: <%= event.date %></li>
+			        <li>Posted by: <%= event.user_id %></li> 
+				</ul>
+	        <a href="#" class="btn btn-primary" role="button">More details</a> <a href="#" class="btn btn-default" role="button">Comment</a></p>
+	      </div>
+	    </div>
+	  </div>
+	<% end %>  
+	</div>
+</div>
+
 
 
 
