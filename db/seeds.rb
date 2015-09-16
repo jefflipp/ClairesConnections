@@ -5,9 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-users = User.all
-user  = users.first
-following = users[2..50]
-followers = users[3..40]
-following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }
+
+
+events = Event.all
+event  = events.first
+attending = events[2..50]
+attendees = events[3..40]
+attending.each { |attended| event.attend(attended) }
+attendees.each { |attendee| attendee.attend(event) }

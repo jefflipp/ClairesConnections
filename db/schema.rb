@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916170644) do
+ActiveRecord::Schema.define(version: 20150916182908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attends", force: :cascade do |t|
+    t.integer  "attend_id"
+    t.integer  "attending_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "attends", ["attend_id", "attending_id"], name: "index_attends_on_attend_id_and_attending_id", unique: true, using: :btree
+  add_index "attends", ["attend_id"], name: "index_attends_on_attend_id", using: :btree
+  add_index "attends", ["attending_id"], name: "index_attends_on_attending_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "title"
