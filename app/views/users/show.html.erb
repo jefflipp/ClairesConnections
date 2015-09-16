@@ -1,4 +1,6 @@
 
+<%= render 'sessions/feed' %>
+
 <div class = "container">
 <div class = "title">
   <h1> My Profile </h1>
@@ -41,7 +43,7 @@
 
 
 <h3>My events </h3>
-<% @event.each do |event| %>
+<% @user_events.each do |event| %>
 <div class="row">
   <div class="col-xs-1 col-md-1">
     <a href="#" class="thumbnail">

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   before_action :current_user, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
 
@@ -22,8 +23,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @event = @user.events
-    
+    @user_events = @user.events
+    @feed = feed
   end
 
   def new
@@ -60,8 +61,11 @@ class UsersController < ApplicationController
 	    render :edit
 	  end
 	end
-
-
+    
+  def feed
+    @event  = current_user.events.build
+    @feed_items = current_user.feed
+  end
 
   private
 
