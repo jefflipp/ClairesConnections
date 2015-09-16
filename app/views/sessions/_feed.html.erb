@@ -1,4 +1,10 @@
-
-<%= @feed.each do |event| %>
-  <%= event.title %>
-<% end %>
+<div class = "container">
+	<% @feed.each do |event| %>
+		<div class="span6 pull-right" style="text-align:right">
+		  
+				  <%= event.title %> 
+				  <%= event.description %>
+				  <%= event.user_id %>
+				<% end %>	      	
+		  </div>
+</div>
