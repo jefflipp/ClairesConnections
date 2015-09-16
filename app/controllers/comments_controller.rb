@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
 
 	def index
     @comments = Comment.all
-
   end
 
   def show
@@ -22,10 +21,10 @@ class CommentsController < ApplicationController
     @event = Event.find(params[:event_id])
     @comment = @event.comments.new(comment_params)
     @comment.user_id = @user
-    @comment.event_id = @event
 
     if @comment.save
       redirect_to event_comments_path
+      flash[:success] = "Your post has been sent"
       
     else
       render :new
@@ -59,7 +58,7 @@ class CommentsController < ApplicationController
   end
 
   def event_params
-      params.require(:event).permit(:title, :description, :date, :start_time, :end_time, :location, :for_ages)
+      params.require(:event).permit(:title, :description, :date, :start_time, :end_time, :location, :for_ages,)
   end
 
 

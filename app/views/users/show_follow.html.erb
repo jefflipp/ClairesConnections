@@ -1,0 +1,23 @@
+<div class = "container">
+<% provide(:title, @title) %>
+	<div class="row">
+	  <aside class="col-md-4">
+	    <section class="user_info">
+	      <h1><%= @user.user_name %></h1>
+	    </section> 
+	    <section class="stats">
+	      <%= render 'sessions/stats' %>
+	      <% if @users.any? %>
+	        <div class="user_avatars">
+	          <% @users.each do |user| %>
+	          <ul>
+	            <li> <%= user.user_name %> </li>
+	          <% end %>
+	          </ul>
+	        </div>
+	      <% end %>
+		</section>
+	</aside>
+		
+</div>	
+	  
