@@ -23,7 +23,8 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-    @event = @user.events
+    @user_events = @user.events
+    @feed = feed
     
   end
 
@@ -61,7 +62,10 @@ class UsersController < ApplicationController
 	    render :edit
 	  end
 	end
-
+  def feed
+    @event  = current_user.events.build
+    @feed_items = current_user.feed
+  end
   
 
   private
