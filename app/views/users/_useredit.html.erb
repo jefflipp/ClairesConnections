@@ -1,0 +1,15 @@
+<% if @user==current_user %>
+
+  <button type="button" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-pencil"> 
+      <%= link_to "Edit", edit_user_path(@user) %>
+    </span>
+  </button>
+
+  <button type="button" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-trash">
+      <%= link_to "Delete!", user_path, method: :delete, data: { confirm: "Are you sure you want to delete this profile?"} %> 
+    </span>
+  </button>
+
+<% end %>

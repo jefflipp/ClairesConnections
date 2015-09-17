@@ -1,0 +1,159 @@
+/** Color Swatches **/
+$body: #AEA7A0;
+$container: #FFF;
+$width: 400px;
+$transparantBG: rgba(0, 0, 0, 0.2);
+
+/** Helpers **/
+.pull-left { float: left; }
+.pull-right { float: right; }
+
+/** Main Styles **/
+body {
+  background: $body;
+  margin-bottom: 40px;
+}
+
+.container {
+  position: relative;
+  width: $width;
+  padding: 0px;
+  margin: 0px auto;
+  background: $container;
+  max-height: 650px;
+}
+
+.article {
+    
+    .cover {
+      height: 650px;
+      background-image: url('http://www.matthewreichardt.com/content/images/2015/01/ghost-bg.jpg');
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      
+      header {
+        padding: 15px;
+        color: #FFF;
+        font-size: 130%;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.2);
+        
+        .menu {
+          position: absolute;
+          float: left;
+          line-height: 30px;
+        }
+        
+        .title {
+          text-align: center;
+        }
+      }
+      
+      .details {
+        position: absolute;
+        width: $width - 40;
+        bottom: 0px;
+        padding-left: 40px;
+        margin-bottom: 20px;
+        
+        h1 {
+          clear: left;
+          background: $transparantBG;
+          padding: 10px;
+          color: darken(#FFF, 5%);
+          font-size: 380%;
+        }
+        
+        h4 {
+          float: left;
+          background: $transparantBG;
+          padding: 5px;
+          margin-right: 10px;
+          width: 130px;
+          text-align: center;
+          color: darken(#FFF, 5%);
+        }
+        .category {
+          margin-bottom: 0px;
+          background: #75CAD8;  
+        }
+        
+        footer {
+          color: #AEA7A0;
+          font-size: 124%;
+          
+          .source { float: left; color: lighten(#AEA7A0, 15%); }
+          .more { float: right; color: lighten(#AEA7A0, 15%); }
+          i { margin-left: 15px; }
+        }
+      }
+    }
+  
+  .cover-sm {
+    height: 250px;
+    background-image: url('http://www.matthewreichardt.com/content/images/2015/01/ghost-bg.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}
+
+.details {
+  position: relative;
+  width: $width - 40;
+  bottom: 0px;
+  padding-left: 40px;
+  margin-bottom: 20px;
+  color: darken(#FFF, 75%);
+
+  h1 {
+    clear: left;
+  }
+
+  h4 {
+    float: left;
+    padding: 5px;
+    margin-right: 10px;
+    width: 130px;
+    text-align: center;
+    
+  }
+  .category {
+    float: left;
+    margin-bottom: 0px;
+    background: #75CAD8;
+    color: darken(#FFF, 5%);
+  }
+  
+  .fa-circle {
+    line-height: 50px;
+    font-size: 65%;
+    color: darken(#FFF, 20%);
+    margin-left: 5px;
+  }
+  
+  .date { color: darken(#FFF, 35%) }
+  
+  .content {
+    clear: left;
+    font-size: 120%;
+    line-height: 26px;
+    color: darken(#FFF, 60%);
+  }
+
+  footer {
+    color: #AEA7A0;
+    font-size: 124%;
+
+    .source { float: left; color: lighten(#AEA7A0, 15%); }
+    .more { float: right; color: lighten(#AEA7A0, 15%); }
+    i { margin-left: 15px; }
+  }
+ }
+
+
+
+

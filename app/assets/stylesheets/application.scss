@@ -21,3 +21,32 @@ ul {
 	list-style: none;
 	padding-left: 0;
 }
+
+
+body
+{
+  background:#fff;
+  margin:0;
+}
+
+container {
+	
+}
+
+/* event table */
+
+h2 {
+	padding: 30px;
+}
+
+.eventTable .list-group .list-group-item {
+	height: 60px;
+	overflow: scroll;
+}
+
+.button {
+	padding: 30px;
+}
+
+
+

@@ -1,31 +1,28 @@
-
-<div class = "title text-center" >
-	<h1> Hi <%=current_user.user_name%> </h1>
-</div>
-<div class="container">
-	<div class="row">
-	<% @events.each do |event| %>
-	  <div class="col-sm-2" >
-	    <div class="thumbnail">
-	      <img src="http://www.nsdcnaacp.org/flickr_icon.png" alt="...">
-	      <div class="caption text-center" >
-	        <h3>Event: <%= event.title %></h3>
-	        	<ul>
-			        <li>What's happening: <%= event.description %></li>
-			        <li>Date: <%= event.date %></li>
-			        <li>Posted by: <%= event.user_id %></li> 
-				</ul>
-	        	<button type="button" class="btn btn-default btn-sm">
-              		<span class="glyphicon glyphicon-search"> 
-              		<%= link_to "More", event %></span>
-            	</button>
-	      </div>
-	    </div>
-	  </div>
-	<% end %>  
+<section class="eventTable">
+	<div class="container">
+		<div class="row">
+			<div class = "title text-center" >
+				<h2> 
+					Hi <%=current_user.user_name%> check out events from our network 
+				</h2>
+				<% @events.each do |e| %>
+					<div class = "col-sm-3">
+						<div class="list-group">
+						  <a href="#" class="list-group-item active">
+						    <%= e.title %>
+						  </a>
+						  <a href="#" class="list-group-item"><%= e.description %></a>
+						  <a href="#" class="list-group-item"><%= e.date %></a>
+						  <a href="#" class="list-group-item"><%= e.start_time %></a>
+						</div>
+					</div>
+				<%end%>
+			</div>	
+		</div>
 	</div>
-</div>
+</section>
+	
 
-
-
-
+		
+		
+		
