@@ -10,26 +10,13 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    @users = User.all
   end
 
   def create
-    @event = Event.new({
-      title: event_params[:title],
-      description: event_params[:description],
-      date: event_params[:date],
-      start_time: event_params[:start_time],
-      end_time: event_params[:end_time],
-      location: event_params[:location],
-      for_ages: event_params[:for_ages],
-      event_id: event_params[:event_id],
-      user_id: current_user.id
-
-    })
-
-    @comment = @event.comments.new(comment_params)
-    @comment.user_id = @user
-        
+    @user = current_user
+    @event = Event.new(event_params)
+    @event.user_id = current_user.id
+   
     if @event.save
       redirect_to users_path
       
@@ -61,7 +48,7 @@ class EventsController < ApplicationController
 private
 
 	def event_params
-	    params.require(:event).permit(:title, :description, :date, :start_time, :end_time, :location, :for_ages)
+	    params.require(:event).permit(:title, :description, :date, :start_time, :end_time, :location, :for_ages, :event_id, :user_id)
 	end
 
   def comment_params

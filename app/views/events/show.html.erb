@@ -10,7 +10,7 @@
         
         <div class="caption">        
             <ul>
-              <li> Submitted by: <%=@event.user.user_name%> </li>	
+              <li> Submitted by: <%=@event.user_id%> </li>	
               <li> Name: <%=@event.title%> </li>
               <li> Decription: <%=@event.description%> </li>
               <li> Suggested age: <%=@event.for_ages%> </li>
@@ -19,14 +19,17 @@
             	<li> End time: <%=@event.end_time%> </li>
             	<li> Location: <%=@event.location%> </li>
             </ul>
-              <span class="label"> <%= link_to "Add Comment", new_event_comment_path(@event)%> </span>
+              
+              <span class="label"> <%= link_to "Add Comment", new_event_comment_path(@event)%> 
+              </span>
+
+              <span class="label"> <%= link_to 'Attending', attend_path(@event), method: :post %> 
+              </span>
 
         </div>
       </div>
     </div>
 </div>
-
-
 
 <% @event.comments.each do |c|%>
 <div class="media">

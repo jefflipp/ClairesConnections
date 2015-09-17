@@ -1,10 +1,11 @@
-<div class = "container">
-	<% @feed.each do |event| %>
-		<div class="span6 pull-right" style="text-align:right">
-		  
-				  <%= event.title %> 
-				  <%= event.description %>
-				  <%= event.user_id %>
-				<% end %>	      	
-		  </div>
-</div>
+<h3> Followed Feeds </h3>
+		<% @feed.each do |event| %>
+			<div class="span6">	  
+				<ul>
+					<li> Name: <%= event.title %> </li>
+					<li> Title: <%= event.description %> </li>
+					<li> User: <%= event.user_id %> </li>
+				</ul> 		     	
+			</div>
+<% end %>
+

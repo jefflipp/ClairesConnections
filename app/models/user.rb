@@ -5,8 +5,10 @@ class User < ActiveRecord::Base
 
 	
 	has_secure_password
-	has_many :events
+	has_many :events, through: :eventusers
+  has_many :eventusers
 	has_many :comments
+
 
 	has_many :active_relationships,  class_name:  "Relationship",
                                    foreign_key: "follower_id",
@@ -16,6 +18,8 @@ class User < ActiveRecord::Base
 	                                   dependent:   :destroy
 	has_many :following, through: :active_relationships,  source: :followed
 	has_many :followers, through: :passive_relationships, source: :follower
+
+  
 
  # Follows a user.
   def follow(other_user)
@@ -33,6 +37,6 @@ class User < ActiveRecord::Base
                      OR user_id = :user_id", user_id: id)
   end
 
-
+  
 
 end

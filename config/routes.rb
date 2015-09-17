@@ -11,6 +11,7 @@ root "welcome#index"
     resources :relationships, only: [:create, :destroy]
     resources :events do
       resources :comments
+
     end
 
   
@@ -20,6 +21,10 @@ root "welcome#index"
   delete '/logout' => 'sessions#destroy'
 
   get '/comments' => 'comments#index'
+
+  # get 'eventusers' => 'eventusers#index'
+  get 'eventusers/new' => 'eventusers#new'
+  post 'eventusers/:event_id' => 'eventusers#create', as: :attend
 
  
 

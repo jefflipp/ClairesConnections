@@ -1,63 +1,70 @@
-<div class = "container">
-  <h1> My Profile </h1>
-  <%= render 'sessions/stats' %>
-  <br>
-   <div class="col-sm-3">   
-    <div class="row text">
+<div class = "maincontainer">
+  <% if @user == current_user %>
+    <h1> My Profile </h1>
+  <% else %>
+    <h1> Not My Profile </h1>
+  <% end %>
 
-            <% if current_user %>
-            <%= render 'follow_form'%>
-            <% end %>      
-      </section>
-    </div>
 
-         <ul>
-            <%= image_tag @user.image.url(:large)%>
-            <li><strong> Name: </strong> <%=@user.first_name%></li>
-            <li><strong> Email: </strong> <%=@user.email%></li>
-            <li><strong> About me: </strong> <%=@user.bio%><li/>
-          <br>
-          </ul>
-       
-          <% if @user==current_user %>
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-pencil"> 
-              <%= link_to "Edit", edit_user_path(@user) %></span>
-            </button>
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-trash">
-              <%= link_to "Delete!", user_path, method: :delete, data: { confirm: "Are you sure you want to delete this profile?"} %> 
-              </span>
-            </button>
-          <% end %>
-          <p><%= link_to "Add an event", new_event_path %> </p>
-        </div>
-      </div>
-    </div>
+<%= render 'sessions/stats' %>
+<br> 
+
+<%= render 'follow_form' %>
+
+<br>
+
 </div>
 
+<div class = "container">
+  <% if current_user %>    
+    <%= image_tag @user.image.url(:large)%>
+    <br>  
+    <ul>
+      <li><strong> Name: </strong> <%=@user.first_name%></li>
+      <li><strong> Email: </strong> <%=@user.email%></li>
+      <li><strong> About me: </strong> <%=@user.bio%><li/>
+    <br>
+    </ul>
+  <% end %>
+<div class = "container">
 
+<div class = "container" >       
 
+<% if @user==current_user %>
+
+  <button type="button" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-pencil"> 
+      <%= link_to "Edit", edit_user_path(@user) %>
+    </span>
+  </button>
+
+  <button type="button" class="btn btn-default btn-sm">
+    <span class="glyphicon glyphicon-trash">
+      <%= link_to "Delete!", user_path, method: :delete, data: { confirm: "Are you sure you want to delete this profile?"} %> 
+    </span>
+  </button>
+
+<% end %>
+
+</div>
+
+<%= link_to "Add an event", new_event_path %> 
+  
 <%= render 'sessions/feed' %>
 
-<h3>My events </h3>
-<% @user_events.each do |event| %>
-<div class="row">
-  <div class="col-xs-1 col-md-1">
-    <a href="#" class="thumbnail">
-      <img src="https://www.afplanserv.com/media/100093/qualifying_event_50x50.png?anchor=center&mode=crop&width=50&height=50&rnd=130778996520000000" alt="...">
-    </a>
-    
-  </div>
-    <ul> 
-      <li><strong>Name: </strong><%= event.title %></li>
-      <li><strong>Title: </strong><%= event.description %></li>
-      <li><strong>Date: </strong><%= event.date %></li>
-      <%#= link_to "Edit", edit_user_event_path %>
-    </ul>
+<div class = "container">
+
+  <h3>My events </h3>
+    <% @user_events.each do |event| %>
+      <ul> 
+        <li><strong>Name: </strong><%= event.title %></li>
+        <li><strong>Title: </strong><%= event.description %></li>
+        <li><strong>Date: </strong><%= event.date %></li>
+      </ul>
+
+  <span class="label"> <%= link_to "More details", event_path %> </span>
+  <% end %>
 </div>
-<span class="label"> <%= link_to "More details", event_path %> </span>
-<% end %>
 
 	
 

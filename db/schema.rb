@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916170644) do
+ActiveRecord::Schema.define(version: 20150916205406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attends", force: :cascade do |t|
+    t.integer  "attend_id"
+    t.integer  "attending_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "attends", ["attend_id", "attending_id"], name: "index_attends_on_attend_id_and_attending_id", unique: true, using: :btree
+  add_index "attends", ["attend_id"], name: "index_attends_on_attend_id", using: :btree
+  add_index "attends", ["attending_id"], name: "index_attends_on_attending_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.string   "title"
@@ -38,6 +49,16 @@ ActiveRecord::Schema.define(version: 20150916170644) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
   end
+
+  create_table "eventusers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "eventusers", ["event_id"], name: "index_eventusers_on_event_id", using: :btree
+  add_index "eventusers", ["user_id"], name: "index_eventusers_on_user_id", using: :btree
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
@@ -66,4 +87,6 @@ ActiveRecord::Schema.define(version: 20150916170644) do
     t.datetime "image_updated_at"
   end
 
+  add_foreign_key "eventusers", "events"
+  add_foreign_key "eventusers", "users"
 end

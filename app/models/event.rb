@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
-	belongs_to :user
+	has_many :users, through: :eventusers
+	has_many :eventusers
 	has_many :comments
 end
