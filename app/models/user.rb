@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
 
 	
 	has_secure_password
-	has_many :events, through: :eventusers
+	
   has_many :eventusers
+  has_many :events, through: :eventusers
 	has_many :comments
 
 

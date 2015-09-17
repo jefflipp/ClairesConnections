@@ -1,7 +1,10 @@
-<% if @user == current_user %>
-  
+
   <section class="eventTable">
-    <h2>Hi<%=current_user.user_name%></h2>
+    <% if @user == current_user %>
+    <h2>Hi<%=current_user.user_name%> here's your profile</h2>
+    <% else %>
+    <h2>Hi<%=current_user.user_name%> this is the profile page your requested</h2>
+    <%end%>
     <div class="container">
       <div class="row">
         <div class = "title text-center" >
@@ -19,19 +22,43 @@
       </div>
       <%= render 'sessions/stats' %>
       <br>
-      <%= render 'useredit' %>
-      <br>
+
+<% if @user == current_user %>
+
       <div class="btn-group">
+      
       <button type="button" class="btn btn-alert"><%= link_to "Add an event", new_event_path %> </button>  
       </div>
+      <br>
+      <%= render 'useredit' %>
+    
     </div>
- 
-<% else %>
-
-  <%= render 'notusershow' %>
-
 <%end%>
 	
 </section>
+
+
+<div class = "container">
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="..." alt="...">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">My Events</h4>
+      <% @user.events.each do |e| %>
+        <ul> 
+          <li><strong>Name: </strong><%= e.title %></li>
+          <li><strong>Title: </strong><%= e.description %></li>
+          <li><strong>Date: </strong><%= e.date %></li>
+        </ul>
+      <span class="label"> <%= link_to "More details", event_path %> </span>
+      <% end %>  
+    </div>
+  </div>
+</div>
+
+
 
 
