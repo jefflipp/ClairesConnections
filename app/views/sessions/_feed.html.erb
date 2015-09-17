@@ -1,18 +1,20 @@
-<div class = "container">
-	<h3> Followed Feeds </h3>
-		<% @feed.each do |event| %>
-			<div class="media">
-			  <div class="media-left">
-			    <a href="#">
-			      <img class="media-object" src="..." alt="...">
-			    </a>
-			  </div>
-			  <div class="media-body">
-			    <h4 class="media"><%= event.title %></h4>
-			    <h5 class="media"><%= event.description %></h5>
-			    <h6 class="media"><%= event.user_id %></h6>
-			  </div>
-			</div>
-		<% end %>
+<div class = "Container">
+	<div class = "Feed col-sm-6">
+		<h3> Followed Feeds </h3>
+			<% @feed.each do |event| %>
+				<div class="media">
+				  <div class="media-left">
+				    <a href="#">
+				      <img class="media-object" src="..." alt="...">
+				    </a>
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media"><%= event.title %></h4>
+				    <h5 class="media"><%= event.description %></h5>
+				    <h6 class="media"><%= event.user_id %></h6>
+				  </div>
+				</div>
+			<% end %>
+	</div>
 </div>
 
