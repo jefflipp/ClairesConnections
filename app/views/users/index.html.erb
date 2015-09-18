@@ -12,8 +12,8 @@
             <%= image_tag u.image.url(:small) %>
             <div class="caption text center">
               <ul>
-                <li><%= u.first_name %> <%= u.last_name %></li>
-                <li><%= u.email %></li>
+                <li class = "a">Name: <%= u.first_name %> <%= u.last_name %></li>
+                <li>Email: <%= u.email %></li>
                 <li><%= u.bio %></li>
                 <li> Latest event: <%= u.events.last %></li>
                 <li><%= link_to "More", user_path(u)%></li>

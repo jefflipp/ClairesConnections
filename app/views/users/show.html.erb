@@ -21,9 +21,11 @@
                 <%= image_tag @user.image.url(:small) %>
                 <br>
                 <br>
-                <%= @user.bio %>
-                <br>
-                <%= @user.email %>
+                <ul>
+                  <li><%= @user.bio %></li>
+               
+                  <li>Email me: <%=@user.email %></li>
+                </ul>
               </a>            
             </div>
                 My connections <%= render 'sessions/stats' %>
