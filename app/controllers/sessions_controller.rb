@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
     if current_user
       @event  = current_user.events.build
       @feed_items = current_user.feed
+      
     end
   end
  

@@ -1,0 +1,16 @@
+<div class = "Container">
+	<div class = "Feed">
+			<% @comments.each do |c| %>
+				<div class="media">
+				  <div class="media-left">
+					  <div class="media-body">
+					    <h4 class="media">Name: <%= c.title%></h4>
+					    <h5 class="media">Details: <%= c.body %></h5>
+					    <h6 class="media">Suggesteed by: <%= c.user_id %></h6>
+					  </div>
+				  </div>
+				</div>
+			<% end %>
+	</div>
+</div>
+

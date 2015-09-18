@@ -3,14 +3,12 @@
 			<% @feed.each do |event| %>
 				<div class="media">
 				  <div class="media-left">
-				    
+					  <div class="media-body">
+					    <h4 class="media">Name: <%= event.title%></h4>
+					    <h5 class="media">Details: <%= event.description %></h5>
+					    <h6 class="media">Suggesteed by: <%= event.user_id %></h6>
+					  </div>
 				  </div>
-				  <div class="media-body">
-				    <h4 class="media">Name: <%= event.title %> <% link_to "More", event_path %></h4>
-				    <h5 class="media">Details: <%= event.description %></h5>
-				    <h6 class="media">Suggesteed by: <%= @user.user_name %></h6>
-				  </div>
-
 				</div>
 			<% end %>
 	</div>
