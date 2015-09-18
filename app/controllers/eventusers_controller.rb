@@ -8,7 +8,7 @@ class EventusersController < ApplicationController
     @eventuser = Eventuser.new(user_id: @user.id, event_id: @event.id)
    
     if @eventuser.save
-      @user.events << @event
+      # @user.events << @event
       redirect_to root_path
     else
       render :new

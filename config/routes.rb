@@ -20,6 +20,8 @@ root "welcome#index"
   post '/login'    => 'sessions#create', as: :log_cr
   delete '/logout' => 'sessions#destroy'
 
+  get '/admin'     => 'sessions#admin'
+
   get '/comments' => 'comments#index'
 
   # get 'eventusers' => 'eventusers#index'

@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     @user_events = @user.events
     @feed = feed
+    @owned_events = Event.where(user_id: @user.id)
     
   end
 

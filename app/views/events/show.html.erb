@@ -1,52 +1,72 @@
   <section class="eventTable">
-    <h2>Hi<%=current_user.user_name%> here are the details about the event your requested </h2>
+    <h2>Hi <%=current_user.user_name%> here are the details about the event your requested </h2>
     <div class="container">
       <div class="row">
         <div class = "title text-center" >
-            <div class = "col-sm-3">
-              <div class="list-group">
-                <a href="#" class="list-group-item active">
-                 <%=@event.title%> submitted by: <%=@event.user_id%> 
-                </a>
-                <a href="#" class="list-group-item">
-                 <%=@event.description%> 
-                </a>
-                <a href="#" class="list-group-item">
-                 Would be good for kids aged <%=@event.for_ages%> 
-                </a>
-                <a href="#" class="list-group-item">
-                  Happening on <%=@event.date%> 
-                </a>
-                <a href="#" class="list-group-item">
-                  From <%=@event.start_time%> until <%=@event.end_time %> 
-                </a>
-                <a href="#" class="list-group-item">
-                 At this location <%=@event.location%> 
-                </a>
-
-                         
-              </div>
-              <span class="label"> <%= link_to "Add Comment", new_event_comment_path(@event)%> 
-              </span>
-
-              <span class="label"> <%= link_to 'Attending', attend_path(@event), method: :post %> 
-              </span>
+          <div class = "col-sm-4">
+            <div class="list-group">
+              <a href="#" class="list-group-item active">
+               <%=@event.title%> submitted by: <%=@user.user_name%> 
+              </a>
+              <a href="#" class="list-group-item">
+               <%=@event.description%> 
+              </a>
+              <a href="#" class="list-group-item">
+               Would be good for <%=@event.for_ages%>'s
+              </a>
+              <a href="#" class="list-group-item">
+                Happening on <%=@event.date.strftime("%v")%> 
+              </a>
+              <a href="#" class="list-group-item">
+                From <%=@event.start_time.strftime("%l")%> until <%=@event.end_time.strftime("%r") %> 
+              </a>
+              <a href="#" class="list-group-item">
+               At this location <%=@event.location%> 
+              </a>
             </div>
+            <span class="label"> <%= link_to "Add Comment", new_event_comment_path(@event)%></span>
+            <% if !(current_user.events.exists?(@event)) %>
+            <span class="label"> <%= link_to 'Attend', attend_path(@event), method: :post %></span>
+            <% end %>
+          </div>
+          <div class="col-sm-8">
+          <% @event.users.each do |e| %>
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                </a>
+              </div>
+              <div class="media-body text-left">
+                <h4 class="media-heading ">Attending</h4>
+                <%= e.user_name %>
+
+              </div>
+            </div>
+          <% end %>
+          <% @event.comments.each do |c|%>
+          <div class="media text-left">
+            <div class="media-left ">
+              <a href="#">
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">Comment from <%= c.user.user_name %> </h4>
+                <%= c.title %>
+                <%= c.body %>
+              </div>
+            </div>
+          <% end %>
+        </div>
         </div>  
       </div>
+    </div>
+  </section>
 
-<% @event.comments.each do |c|%>
-<div class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="http://findicons.com/files/icons/1676/primo/128/comments.png" alt="...">
-    </a>
-  </div>
-  <div class="media-body">
-    <h4 class="media-heading">Comment from <%= c.user_id %> </h4>
-    	<%= c.title %>
-    	<%= c.body %>
-<% end %>
-  </div>
-</div>
+
+  
+
+
+
 

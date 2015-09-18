@@ -12,10 +12,10 @@
 						    <%= e.title %>
 						  </a>
 						  <a href="#" class="list-group-item"><%= e.description %></a>
-						  <a href="#" class="list-group-item"><%= e.date %></a>
-						  <a href="#" class="list-group-item"><%= e.start_time %></a>
+						  <a href="#" class="list-group-item"><%= e.date.strftime("%v") %></a>
+						  <a href="#" class="list-group-item"><%= e.start_time.strftime("%r")  %></a>
 						  <a href="#" class="list-group-item"><%= e.location %></a>
-						   <button type="button" class="btn btn-alert"><%= link_to "More details", events_path %> </button>
+						   <button type="button" class="btn btn-alert"><%= link_to "More details", event_path(e) %> </button>
 						</div>
 					</div>
 				<%end%>

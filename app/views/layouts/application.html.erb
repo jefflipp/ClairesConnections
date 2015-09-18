@@ -26,7 +26,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active">
+          <% if current_user %>
+          <a class= <%= link_to 'My Profile', user_path(current_user) %> </a></li>
+          <% else current_user %>
           <a class= <%= link_to 'My Profile', users_path %> </a></li>
+          <% end %>
+        <li class="active">
+        <a class= <%= link_to 'Comments', comments_path %> </a></li>
         <li>
           <a href="/events/new">Add an Event</a></li>
         <li class="dropdown">

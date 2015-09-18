@@ -1,3 +1,18 @@
+<div class = "container col-sm-3">
+  <%= form_for [@event, @comment] do |f|%>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Title</span>
+    <input type="text" class="form-control" placeholder="Enter a title" aria-describedby="basic-addon1">
+     </div>
+     <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">Comment</span>
+    <input type="text" class="form-control" placeholder="Enter a comment" aria-describedby="basic-addon1">
+  </div>
+  <% end %>
+</div>
+
+
 <div class="row">
   <div class="col-sm-5 col-md-5">
     <div class="thumbnail">

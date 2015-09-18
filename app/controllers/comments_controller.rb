@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 
 	def index
     @comments = Comment.all
+    @event = Event.find(params[:event_id]) 
   end
 
   def show

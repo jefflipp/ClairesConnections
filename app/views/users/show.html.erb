@@ -1,63 +1,83 @@
-
-  <section class="eventTable">
-    <% if @user == current_user %>
+  
+<section class="eventTable">
+  <% if @user == current_user %>
     <h2>Hi<%=current_user.user_name%> here's your profile</h2>
-    <% else %>
+  <% else %>
     <h2>Hi<%=current_user.user_name%> this is the profile page your requested</h2>
-    <%end%>
-    <div class="container">
-      <div class="row">
-        <div class = "title text-center" >
-            <div class = "col-sm-3">
-              <div class="list-group">
-                <a href="#" class="list-group-item active">
-                 <%= @user.first_name%> <%= @user.last_name%> 
-                </a>
-                <a href="#" class="list-group-item"><%= image_tag @user.image.url(:small) %></a>
-                <a href="#" class="list-group-item"><%= @user.bio %></a>
-                <a href="#" class="list-group-item"><%= @user.email %></a>             
-              </div>
-            </div>
-        </div>  
-      </div>
-      <%= render 'sessions/stats' %>
-      <br>
+  <%end%>
+  <div class ="container">
 
-<% if @user == current_user %>
-
-      <div class="btn-group">
-      
-      <button type="button" class="btn btn-alert"><%= link_to "Add an event", new_event_path %> </button>  
+    <div class="row">
+      <div class = "title text-center">
+        <div class = "col-sm-4">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">
+             <%= @user.first_name%> <%= @user.last_name%> </a>
+            <a href="#" class="list-group-item"><%= image_tag @user.image.url(:small) %></a>
+            <a href="#" class="list-group-item"><%= @user.bio %></a>
+            <a href="#" class="list-group-item"><%= @user.email %></a>             
+          </div>
+            <%= render 'sessions/stats' %>
+            <br>
+            <%= render :partial => 'follow_form', :locals => { user: @user } %>
+          <div class="btn-group">
+            <button type="button" class="btn btn-alert">
+              <%= link_to "Add an event", new_event_path %> 
+            </button> 
+          </div> 
+          <% if @user == current_user %>
+            <%= render 'useredit' %>
+          <% end %>
+        </div>
       </div>
-      <br>
-      <%= render 'useredit' %>
+      <div class="col-sm-8">
+        <% if @user != current_user %>
+          <%= render 'sessions/feed' %>
+        <% end %>
+        <div class="media">
+          <div class="media-body">
     
+            <h4 class="media-heading">My Events</h4>
+            <% @current_user.events.each do |e| %>
+              <ul> 
+                <li><strong>Name: </strong><%= e.title %></li>
+                <li><strong>Title: </strong><%= e.description %></li>
+                <li><strong>Date: </strong><%= e.date %></li>
+              </ul>
+            <span class="label"> <%= link_to "More details", event_path %></span>
+          <% end %>  
+        </div>
+      </div>
     </div>
-<%end%>
+  </div>
 	
-</section>
+    
 
-
-<div class = "container">
-  <div class="media">
-    <div class="media-left">
-      <a href="#">
-        <img class="media-object" src="..." alt="...">
-      </a>
-    </div>
+  <div class="col-sm-12">
+    <div class="media">
     <div class="media-body">
-      <h4 class="media-heading">My Events</h4>
-      <% @user.events.each do |e| %>
+  
+      <h4 class="media-heading">Owned Events</h4>
+      <% @owned_events.each do |e| %>
         <ul> 
           <li><strong>Name: </strong><%= e.title %></li>
           <li><strong>Title: </strong><%= e.description %></li>
-          <li><strong>Date: </strong><%= e.date %></li>
+          <li><strong>Date: </strong><%= e.date.strftime("%v") %></li>
         </ul>
-      <span class="label"> <%= link_to "More details", event_path %> </span>
-      <% end %>  
     </div>
   </div>
 </div>
+
+    <%end%>
+</div>
+
+</section>
+
+
+
+
+
+
 
 
 

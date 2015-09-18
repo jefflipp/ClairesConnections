@@ -35,14 +35,11 @@
 
   <ul>
     <li><%= f.label :for_ages %></li>
-      <select> 
-        <option value="Tinnies">Tinnies</option>
-        <option value="Toddlers">Toddler</option>
-        <option value="Teens">Teens</option>
-      </select>
+      <%= f.select :for_ages, options_for_select([["For Ages", ""], "Tinnies", "Toddler", "Teens"]) %>
     </li>
   </ul>
-  
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <ul>
     <li><%= f.submit %></li>
   </ul>
