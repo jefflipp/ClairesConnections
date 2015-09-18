@@ -1,5 +1,7 @@
 #CLAIRE'S CONNECTIONS
 
+https://clairesconnections.herokuapp.com/
+
 *A safe social network for familes looking for things to do with kids*
 
 ## About Claire's Connections
@@ -24,8 +26,19 @@ Users must sign in with secured authentication to access any information on the 
 
 Authentication is valiadated by email and password inputs.
 
+##The User Feed
+
+Each user has an individual feed comprised of 
+1. Their own "owned events" 
+2. Events they are "attending"
+3. Events from other users they are "following"
+
 ##Creating an Event & Commenting
 
-##Viewing Upcoming Events & Adding Attendance
+User should be able to create an event through a one to many relationship with the event.
 
-##Viewing Comments
+Users also have a one to many relationship with comments. 
+
+##Edit and Deleting
+
+Users have the ability to edit and destroy their own events and comments - but ONLY if they are the other of those events.
