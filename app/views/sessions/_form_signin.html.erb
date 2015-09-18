@@ -1,22 +1,24 @@
-<%= form_tag('/login', method: "POST") do %>
 
-<div class="maincontainer" id="signin">
-      <h1>Sign in</h1> 
-      <p>Go on, try it.</p>
-    <ul>
-      <li><%= label_tag :email %></li>
-      <li><%= text_field_tag :email %></li>
-    </ul>
-    <ul>
-      <li><%= label_tag :password %></li>
-      <li><%= password_field_tag :password %></li>
-    </ul>
-    <ul>
-      <li><%= submit_tag 'Log In' %></li>
-    </ul>
-  </div>
-</div>
-  <% end %>
+<div class="container">
+  <%= form_tag('/login', method: "POST") do %>
+
+  <div class="maincontainer" id="signin">
+        <h1>Sign in</h1> 
+        <p>Go on, try it.</p>
+      <ul>
+        <li><%= label_tag :email %></li>
+        <li><%= text_field_tag :email %></li>
+      </ul>
+      <ul>
+        <li><%= label_tag :password %></li>
+        <li><%= password_field_tag :password %></li>
+      </ul>
+      <ul>
+        <li><%= submit_tag 'Log In' %></li>
+      </ul>
+    </div>
+  
+    <% end %>
 
   <span class="label"> <%= link_to "Or sign up", new_user_path %></span>
-
+</div>

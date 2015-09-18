@@ -1,32 +1,32 @@
-<section class="eventTable">
-  <div class="container">
+
+<h2> 
+    Hi <%=current_user.user_name%> check out all the users on our network 
+  </h2>
+
+<div class ="container">
+  <% @users.each do |u| %>  
     <div class="row">
-      <div class = "title text-center" >
-        <h2> 
-          Hi <%=current_user.user_name%> check out all the users on our network 
-        </h2>
-        <% @users.each do |u| %>
-          
-          <div class = "col-sm-3">
-            <div class="list-group">
-              <a href="#" class="list-group-item active">
-                <%= u.first_name %><%= u.last_name %>
-                <%= render :partial => 'follow_form', :locals => { user: u } %>
-
-              </a>
-              <a href="#" class="list-group-item"><%= u.email %></a>
-              <a href="#" class="list-group-item"><%= image_tag u.image.url(:small) %></a>
-              <% u.events.each do |e| %>
-              <a href="#" class="list-group-item"><%= e.title %></a>
-
-              <% end %>
+      <div class="title">
+        <div class="col-sm-3">
+          <div class="thumbnail">
+            <%= image_tag u.image.url(:small) %>
+            <div class="caption text center">
+              <ul>
+                <li><%= u.first_name %> <%= u.last_name %></li>
+                <li><%= u.email %></li>
+                <li><%= u.bio %></li>
+                <li> Latest event: <%= u.events.last %></li>
+                <li><%= link_to "More", user_path(u)%></li>
+              </ul>
+              <%= render :partial => 'follow_form', :locals => { user: u } %>
             </div>
           </div>
-        <%end%>
-      </div>  
-    </div>
+        </div>
+      </div>
+    <%end%>
   </div>
-</section>
+</div>
+
 
 
 

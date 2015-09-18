@@ -39,9 +39,23 @@ h2 {
 	padding: 30px;
 }
 
-.eventTable .list-group .list-group-item {
+
+.eventTable .list-group .list-group-item active {
 	height: 60px;
 	overflow: scroll;
+}
+
+.eventTable .list-group .list-group-item {
+	height: 70px;
+	overflow: scroll;
+}
+
+
+
+.well {
+	height: 50px;
+	font-size: 12px;
+	padding: 30px;
 }
 
 .button {

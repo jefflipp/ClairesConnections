@@ -1,42 +1,47 @@
 
+<div class = "container">
+  <%= form_for @user do |f| %>
+  <div class="maincontainer" id="signup">
+    <h1>Sign Up</h1> 
+        <p>We can't wait to hear from you</p>
+    
+    <ul>
+      <li><%= f.label :first_name %></li>
+      <li><%= f.text_field :first_name %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :last_name %></li>
+      <li><%= f.text_field :last_name %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :user_name %></li>
+      <li><%= f.text_field :user_name %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :bio %></li>
+      <li><%= f.text_field :bio %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :image %></li>
+      <li><%= f.file_field :image %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :email %></li>
+      <li><%= f.text_field :email %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :password %></li>
+      <li><%= f.password_field :password %></li>
+    </ul>
+    <ul>
+      <li><%= f.label :password_confirmation %></li>
+      <li><%= f.password_field :password_confirmation %></li>
+    </ul>
+    <ul>
+      <li><%= f.submit %></li>
+    </ul>
+  <% end %>
+</div>
 
 
-<h1>Sign Up</h1>
-<%= form_for @user do |f| %>
-  <div>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
-  </div>
-  <div>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
-  </div>
-  <div>
-    <%= f.label :user_name %>
-    <%= f.text_field :user_name %>
-  </div>
-  <div>
-    <%= f.label :bio %>
-    <%= f.text_field :bio %>
-  </div>
-  <div>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
 

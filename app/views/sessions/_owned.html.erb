@@ -1,0 +1,16 @@
+<div class = "Container">
+	<div class = "Owned">
+			<% @owned_events.each do |o| %>
+				<div class="media">
+				  <div class="media-left"> 
+				  </div>
+				  <div class="media-body">
+				    <h4 class="media">Name: <%= o.title %></h4>
+				    <h5 class="media">Details: <%= o.description %></h5>
+				    <h6 class="media">Date: <%= o.date.strftime("%v") %></h6>
+				  </div>
+				</div>
+			<% end %>
+	</div>
+</div>
+

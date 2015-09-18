@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   before_action :current_user, only: [:index, :edit, :update, :destroy,
                                         :following, :followers]
 
