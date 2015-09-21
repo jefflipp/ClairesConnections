@@ -42,3 +42,5 @@ Users also have a one to many relationship with comments.
 ##Edit and Deleting
 
 Users have the ability to edit and destroy their own events and comments - but ONLY if they are the other of those events.
+
+testing forking and cloning
